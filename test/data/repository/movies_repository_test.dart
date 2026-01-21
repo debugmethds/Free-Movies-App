@@ -1,11 +1,11 @@
-import 'package:flutter_movies_app/data/database/dao/movies_dao.dart';
-import 'package:flutter_movies_app/data/database/database_mapper.dart';
-import 'package:flutter_movies_app/data/database/entity/movie_db_entity.dart';
-import 'package:flutter_movies_app/data/network/client/api_client.dart';
-import 'package:flutter_movies_app/data/network/entity/movie_entity.dart';
-import 'package:flutter_movies_app/data/network/network_mapper.dart';
-import 'package:flutter_movies_app/data/repository/movies_repository.dart';
-import 'package:flutter_movies_app/domain/model/movie.dart';
+import '../../../lib/data/database/dao/movies_dao.dart';
+import '../../../lib/data/database/database_mapper.dart';
+import '../../../lib/data/database/entity/movie_db_entity.dart';
+import '../../../lib/data/network/client/api_client.dart';
+import '../../../lib/data/network/entity/movie_entity.dart';
+import '../../../lib/data/network/network_mapper.dart';
+import '../../../lib/data/repository/movies_repository.dart';
+import '../../../lib/domain/model/movie.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

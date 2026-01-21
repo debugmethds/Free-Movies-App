@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movies_app/data/datasource/preferences.dart';
+import '../datasource/preferences.dart';
 
 class PreferencesRepository {
   final Preferences preferences;

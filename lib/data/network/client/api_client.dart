@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_movies_app/data/network/entity/movie_entity.dart';
-import 'package:flutter_movies_app/domain/exception/network_exception.dart';
+import '../entity/movie_entity.dart';
+import '../../../domain/exception/network_exception.dart';
 
 class ApiClient {
   late final Dio _dio;

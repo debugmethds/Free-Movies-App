@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_movies_app/domain/service/app_service.dart';
-import 'package:flutter_movies_app/main.dart';
-import 'package:flutter_movies_app/presentation/list/movies_list_screen.dart';
-import 'package:flutter_movies_app/util/l10n/app_localizations.dart';
+import '../../domain/service/app_service.dart';
+import '../../main.dart';
+import '../list/movies_list_screen.dart';
+import '../../util/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {

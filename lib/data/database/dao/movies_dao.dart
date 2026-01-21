@@ -1,5 +1,5 @@
-import 'package:flutter_movies_app/data/database/dao/base_dao.dart';
-import 'package:flutter_movies_app/data/database/entity/movie_db_entity.dart';
+import 'base_dao.dart';
+import '../entity/movie_db_entity.dart';
 import 'package:sqflite/sqflite.dart';
 
 class MoviesDao extends BaseDao {

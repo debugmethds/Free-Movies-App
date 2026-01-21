@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movies_app/domain/model/movie.dart';
-import 'package:flutter_movies_app/presentation/detail/movie_detail_screen.dart';
-import 'package:flutter_movies_app/presentation/list/movie_preview.dart';
+import '../../lib/domain/model/movie.dart';
+import '../../lib/presentation/detail/movie_detail_screen.dart';
+import '../../lib/presentation/list/movie_preview.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

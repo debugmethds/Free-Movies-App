@@ -1,8 +1,8 @@
-import 'package:flutter_movies_app/data/database/dao/movies_dao.dart';
-import 'package:flutter_movies_app/data/database/database_mapper.dart';
-import 'package:flutter_movies_app/data/datasource/preferences.dart';
-import 'package:flutter_movies_app/data/network/client/api_client.dart';
-import 'package:flutter_movies_app/data/network/network_mapper.dart';
+import '../lib/data/database/dao/movies_dao.dart';
+import '../lib/data/database/database_mapper.dart';
+import '../lib/data/datasource/preferences.dart';
+import '../lib/data/network/client/api_client.dart';
+import '../lib/data/network/network_mapper.dart';
 import 'package:mocktail/mocktail.dart';
 
 class ApiClientMock extends Mock implements ApiClient {}

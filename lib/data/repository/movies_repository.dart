@@ -1,8 +1,8 @@
-import 'package:flutter_movies_app/data/database/dao/movies_dao.dart';
-import 'package:flutter_movies_app/data/database/database_mapper.dart';
-import 'package:flutter_movies_app/data/network/client/api_client.dart';
-import 'package:flutter_movies_app/data/network/network_mapper.dart';
-import 'package:flutter_movies_app/domain/model/movie.dart';
+import '../database/dao/movies_dao.dart';
+import '../database/database_mapper.dart';
+import '../network/client/api_client.dart';
+import '../network/network_mapper.dart';
+import '../../domain/model/movie.dart';
 
 class MoviesRepository {
   final ApiClient apiClient;

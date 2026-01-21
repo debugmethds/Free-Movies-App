@@ -1,5 +1,5 @@
-import 'package:flutter_movies_app/data/repository/movies_repository.dart';
-import 'package:flutter_movies_app/domain/model/movie.dart';
+import '../../data/repository/movies_repository.dart';
+import '../../domain/model/movie.dart';
 import 'package:logger/logger.dart';
 
 class MoviesListModel {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movies_app/data/datasource/preferences.dart';
-import 'package:flutter_movies_app/data/repository/preferences_repository.dart';
+import '../../../lib/data/datasource/preferences.dart';
+import '../../../lib/data/repository/preferences_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

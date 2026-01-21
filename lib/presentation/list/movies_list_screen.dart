@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movies_app/data/repository/movies_repository.dart';
-import 'package:flutter_movies_app/domain/model/movie.dart';
-import 'package:flutter_movies_app/domain/service/app_service.dart';
-import 'package:flutter_movies_app/presentation/list/movie_preview.dart';
-import 'package:flutter_movies_app/presentation/list/movies_list_model.dart';
-import 'package:flutter_movies_app/util/l10n/app_localizations.dart';
+import '../../data/repository/movies_repository.dart';
+import '../../domain/model/movie.dart';
+import '../../domain/service/app_service.dart';
+import 'movie_preview.dart';
+import 'movies_list_model.dart';
+import '../../util/l10n/app_localizations.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
@@ -16,10 +16,9 @@ class MoviesListScreen extends StatefulWidget {
 
 class _MoviesListScreenState extends State<MoviesListScreen> {
   late final AppService _appService;
-
   late final MoviesListModel _model;
-  final PagingController<int, Movie> _pagingController =
-      PagingController(firstPageKey: 1);
+
+  late final PagingController<int, Movie> _pagingController;
   late final Future<void> _future;
 
   @override
@@ -33,16 +32,17 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
       moviesRepo: Provider.of<MoviesRepository>(context, listen: false),
     );
 
-    _future = _checkNewData();
+    _pagingController = PagingController(
+      getNextPageKey: (state) {
+        final lastKey = state.keys?.last;
+        return lastKey == null ? 1 : lastKey + 1;
+      },
+      fetchPage: (pageKey) async {
+        return await _model.fetchPage(pageKey);
+      },
+    );
 
-    _pagingController.addPageRequestListener((pageKey) async {
-      try {
-        final movies = await _model.fetchPage(pageKey);
-        _pagingController.appendPage(movies, pageKey + 1);
-      } catch (e) {
-        _pagingController.error = e;
-      }
-    });
+    _future = _checkNewData();
   }
 
   @override
@@ -75,22 +75,33 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
       body: FutureBuilder<void>(
         future: _future,
         builder: (context, snapshot) => RefreshIndicator(
-          onRefresh: _refresh,
-          child: PagedListView<int, Movie>(
-            pagingController: _pagingController,
-            builderDelegate: PagedChildBuilderDelegate<Movie>(
-              itemBuilder: (context, movie, index) => Container(
-                padding: const EdgeInsets.only(
-                  left: 12.0,
-                  top: 6.0,
-                  right: 12.0,
-                  bottom: 6.0,
-                ),
-                child: MoviePreview(movie: movie),
-              ),
+            onRefresh: _refresh,
+            child: PagingListener<int, Movie>(
+              controller: _pagingController,
+              builder: (context, state, fetchNextPage) {
+                return PagedListView<int, Movie>(
+                  state: state,
+                  fetchNextPage: fetchNextPage,
+                  builderDelegate: PagedChildBuilderDelegate<Movie>(
+                    itemBuilder: (context, movie, index) =>
+                        MoviePreview(movie: movie),
+                  ),
+                );
+              },
+            )
+            // child: PagedListView<int, Movie>(
+            //   pagingController: _pagingController,
+            //   builderDelegate: PagedChildBuilderDelegate<Movie>(
+            //     itemBuilder: (context, movie, index) => Padding(
+            //       padding: const EdgeInsets.symmetric(
+            //         horizontal: 12,
+            //         vertical: 6,
+            //       ),
+            //       child: MoviePreview(movie: movie),
+            //     ),
+            //   ),
+            // ),
             ),
-          ),
-        ),
       ),
     );
   }

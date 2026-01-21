@@ -1,6 +1,6 @@
-import 'package:flutter_movies_app/data/network/entity/movie_entity.dart';
-import 'package:flutter_movies_app/domain/exception/mapper_exception.dart';
-import 'package:flutter_movies_app/domain/model/movie.dart';
+import 'entity/movie_entity.dart';
+import '../../domain/exception/mapper_exception.dart';
+import '../../domain/model/movie.dart';
 import 'package:logger/logger.dart';
 
 class NetworkMapper {

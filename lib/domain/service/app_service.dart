@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movies_app/data/repository/preferences_repository.dart';
+import '../../data/repository/preferences_repository.dart';
 
 class AppService extends ChangeNotifier {
   final PreferencesRepository preferencesRepo;
